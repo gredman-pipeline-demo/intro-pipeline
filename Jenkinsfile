@@ -17,9 +17,13 @@ pipeline {
       }
       input {
         message 'shall we continue?'
+        ok "Deploy"
+        parameters {
+          choice(name: 'APP_VERSION', choices: "v1.1\nv1.2\nv1.3", description: 'what to deploy?')
+        }
       }
       steps {
-        echo 'continuing'
+        echo "deploying ${APP_VERSION}"
       }
     }
   }
