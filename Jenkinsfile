@@ -11,21 +11,6 @@ pipeline {
         sh 'java -version'
       }
     }
-    stage('deploy') {
-      options {
-        timeout(time: 30, unit: 'SECONDS')
-      }
-      input {
-        message 'shall we continue?'
-        ok "Deploy"
-        parameters {
-          choice(name: 'APP_VERSION', choices: "v1.1\nv1.2\nv1.3", description: 'what to deploy?')
-        }
-      }
-      steps {
-        echo "deploying ${APP_VERSION}"
-      }
-    }
   }
   environment {
     MY_NAME = 'gareth'
