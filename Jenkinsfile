@@ -11,6 +11,14 @@ pipeline {
         sh 'java -version'
       }
     }
+    stage('deploy') {
+      input {
+        message 'shall we continue?'
+      }
+      steps {
+        echo 'continuing'
+      }
+    }
   }
   environment {
     MY_NAME = 'gareth'
